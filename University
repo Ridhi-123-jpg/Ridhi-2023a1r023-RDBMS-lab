@@ -1,0 +1,74 @@
+create database University;
+use University;
+create Table Students(
+StudentID INT,
+FirstName VARCHAR(100),
+LastName VARCHAR(100),
+DOB INT,
+Email VARCHAR(100),
+DepartmentID INT 
+);
+show tables;
+desc Students;
+alter Table Students
+modify DOB date;
+describe Students;
+alter Table Students
+add primary key (StudentID);
+describe Students;
+use University;
+create Table Departments
+(
+DepartmentID INT primary key,
+DepartmentName VARCHAR(100),
+Location VARCHAR(100)
+);
+insert into Department(DepartmentID,DepartmentName,Location)values
+(1,'Computer Science','Building A'),
+(2,'Mathematics','Building B'),
+(3,'Physics','Building C');
+select * from Departments;
+
+
+
+
+
+
+use University;
+create Table Courses
+(
+CourseID INT primary key,
+CourseName VARCHAR(100),
+DepartmentID INT,
+Credits INT 
+);
+show Tables;
+
+create Table Professors
+(
+ProfessorID INT primary key,
+FirstName VARCHAR(100),
+LastName VARCHAR(100),
+Email VARCHAR(100),
+DepartmentID INT 
+);
+show Tables;
+select * from courses
+where credits > 3 and coursename='Algebra';
+select * from Departments
+where Location ='Building A' or Location= 'Building C';
+update Departments
+set Location ='Building D'
+where not Location ='Building A';
+Select FirstName, LastName
+from professors
+where DepartmentID  in(Select DepartmentID from Departments where DepartmentName='Computer Science');
+ desc departments;
+ 
+ 
+
+
+
+
+
+
